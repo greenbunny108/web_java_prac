@@ -3,12 +3,12 @@
 База данных
 -
 *****
-![Alt text](resources/images/database.png)
+![Alt text](src/main/resources/images/database.png)
 
 Описание страниц
 -
 *****
-![Alt text](resources/images/structure.png)
+![Alt text](src/main/resources/images/structure.png)
 *****
 С любой страницы можно перейти на главную.
 
