@@ -1,15 +1,19 @@
 package ru.cs.msu.web_java_prac.dao.impl;
 
+import antlr.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import ru.cs.msu.web_java_prac.dao.PersonDAO;
+import ru.cs.msu.web_java_prac.entities.Address;
 import ru.cs.msu.web_java_prac.entities.Person;
+import ru.cs.msu.web_java_prac.entities.Relation;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.persistence.spi.PersistenceUnitInfo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +55,15 @@ public class PersonDAOImpl extends CommonDAOImpl<Person, Long> implements Person
             Root<Person> root = criteriaQuery.from(Person.class);
             return session.createQuery(criteriaQuery).getResultList();
         }
+    }
+
+    @Override
+    public String getDynastyName(Person person) {
+        String ret = person.getLastName();
+        if (ret.substring(ret.length() - 1).equals("а")) {
+            ret = ret.substring(0, ret.length() - 1);
+        }
+        return (ret + "ы");
     }
 
     private String likeExpr(String param) {

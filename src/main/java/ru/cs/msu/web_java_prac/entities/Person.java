@@ -21,16 +21,16 @@ public class Person implements Common<Long> {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "first_name")
     @NonNull
+    @Column(name = "first_name")
     private String firstName;
 
     @NonNull
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "gender_type")
     @NonNull
+    @Column(name = "gender_type")
     private String gender;
 
     @NonNull
@@ -41,6 +41,7 @@ public class Person implements Common<Long> {
     @Column(name = "death_date")
     private LocalDateTime deathDate;
 
+    @NonNull
     @Column(name = "description")
     private String description;
 
@@ -49,6 +50,13 @@ public class Person implements Common<Long> {
     private Address address;
 
 
+    public Integer getBirthYear() {
+        return this.birthDate.getYear();
+    }
+
+    public Integer getDeathYear() {
+        return this.deathDate.getYear();
+    }
 
     @Override
     public boolean equals(Object o) {
