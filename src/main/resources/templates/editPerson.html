@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Редактировать место</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="general :: page-header"> </div>
+
+<div class="indent">
+    <form method="post" action="/savePerson">
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName" required th:value="${person.getFirstName()}"><br><br>
+
+        <label for="firstName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName" required th:value="${person.getLastName()}"><br><br>
+
+        <label for="gender">Пол:</label>
+        <input type="text" id="gender" name="gender" required th:value="${person.getGender()}"><br><br>
+
+        <label for="birthDate">Дата рождения:</label>
+        <input type="text" id="birthDate" name="birthDate" required th:value="${person.getBirthDate()}"><br><br>
+
+        <label for="deathDate">Дата смерти:</label>
+        <input type="text" id="deathDate" name="deathDate" required th:value="${person.getDeathDate()}"><br><br>
+
+        <label for="description">Описание:</label>
+        <input type="text" id="description" name="description" required th:value="${person.getDescription()}"><br><br>
+
+
+        <input id="submitButton" type="submit" value="Сохранить" class="btn btn-primary">
+    </form>
+</div>
+
+<div th:replace="general :: site-footer"></div>
+<div th:replace="general :: site-script"></div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Редактировать место</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="general :: page-header"> </div>
+
+<div class="indent">
+    <form method="post" action="/saveAddress">
+
+        <label for="street_address">Адрес:</label>
+        <input type="text" id="street_address" name="street_address" required th:value="${address.getStreetAddress()}"><br><br>
+
+        <label for="city">Город:</label>
+        <input type="text" id="city" name="city" required th:value="${address.getCity()}"><br><br>
+
+        <label for="state_province">Область:</label>
+        <input type="text" id="state_province" name="state_province" required th:value="${address.getStateProvince()}"><br><br>
+
+        <label for="country">Страна:</label>
+        <input type="text" id="country" name="country" required th:value="${address.getCountry()}"><br><br>
+
+        <input id="submitButton" type="submit" value="Сохранить" class="btn btn-primary">
+    </form>
+</div>
+
+<div th:replace="general :: site-footer"></div>
+<div th:replace="general :: site-script"></div>
+
+</body>
+</html>

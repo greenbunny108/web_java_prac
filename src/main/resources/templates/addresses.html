@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Места</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        .indent {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="general :: page-header"></div>
+
+<div class="indent">
+    <form method="get" action="/editAddress">
+        <button id="addAddrButton" type="submit" class="btn btn-success">Добавить место</button>
+    </form>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Адрес</th>
+            <th scope="col"> Город</th>
+            <th scope="col"> Область</th>
+            <th scope="col"> Страна</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${addresses.isEmpty()}">
+            <td colspan="6"> В базе пока нет ни одного места <a href="/editAddress">Добавить?</a></td>
+        </tr>
+
+        <tr th:each="address : ${addresses}">
+            <td>
+                <a th:href="'/address?addrId=' + ${address.getId()}">
+                    <span th:text="${address.getStreetAddress()}"> </span>
+                </a>
+            </td>
+            <td>
+                <span th:text="${address.getCity()}"> </span>
+            </td>
+            <td>
+                <span th:text="${address.getStateProvince()}"> </span>
+            </td>
+            <td>
+                <span th:text="${address.getCountry()}"> </span>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="general :: site-footer"></div>
+<div th:replace="general :: site-script"></div>
+
+</body>
+</html>
