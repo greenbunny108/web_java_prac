@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import ru.cs.msu.web_java_prac.dao.AddressDao;
 import ru.cs.msu.web_java_prac.entities.Address;
 import ru.cs.msu.web_java_prac.entities.Address;
+import ru.cs.msu.web_java_prac.entities.Person;
+import ru.cs.msu.web_java_prac.entities.Relation;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
